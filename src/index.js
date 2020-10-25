@@ -1,5 +1,5 @@
 module.exports = function toReadable (number) {
-    var a = [];
+    /*var a = [];
     a.unshift ('', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine');
     var b = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']; 
     var c = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
@@ -15,3 +15,25 @@ module.exports = function toReadable (number) {
         return(a[i++] + ' ' + d);
      };
     };
+    */
+   var a = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+   var b = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']; 
+   var c = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+   var d = ['hundred'];
+
+   var tReadable = (num) => {
+   let i = toArray(num);
+   let h = i[0];
+   let t = i[1];
+   let o = i[2];
+
+   return `${a[h]} hundred ${c[t]} ${a[o]}`;
+   }
+   
+   function toArray(num){
+      return String(num).split('').map((val) => Number(val) -1 );
+   }
+
+   return (tReadable(number)).replace(" undefined", "");
+}
+    
